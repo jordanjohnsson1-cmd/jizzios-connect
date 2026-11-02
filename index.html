@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jizzios Connect</title>
+<meta name="theme-color" content="#0a0a0c">
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="root"></div>
+<script>
+// Shim the hosted-file wrapper API the bundle expects.
+window.instinctFile = (function () {
+  if (!location.hash) {
+    var m = location.search.match(/[?&]l=([a-zA-Z0-9]{4,12})/);
+    if (m) location.replace(location.pathname + '#/l/' + m[1].toLowerCase() + '/games');
+  }
+  return {
+    initialRoute: '/',
+    route: function () {},
+    asset: function (p) { return p; }
+  };
+})();
+</script>
+<script src="main.js" defer></script>
+</body>
+</html>
